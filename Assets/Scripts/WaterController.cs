@@ -24,10 +24,11 @@ public class WaterController : MonoBehaviour
         }
         if (Input.GetMouseButton(0))
         {
-            endPoint = Camera.main.ScreenToViewportPoint(Input.mousePosition);
-            float angle = Mathf.Atan2(startPoint.y - endPoint.y, startPoint.x - endPoint.x)*Mathf.Rad2Deg;
-            base_.transform.localRotation = Quaternion.Euler(0, 0, angle+90);
-            Mathf.Clamp(angle, -80, 80);
+            //endPoint = Camera.main.ScreenToViewportPoint(Input.mousePosition);
+            //float angle = Mathf.Atan2(startPoint.y - endPoint.y, startPoint.x - endPoint.x)*Mathf.Rad2Deg;
+            //base_.transform.localRotation = Quaternion.Euler(0, 0, angle+90);
+            //Mathf.Clamp(angle, -80, 80);
+            
         }
         //}
         if (Input.GetMouseButtonUp(0))
@@ -36,5 +37,8 @@ public class WaterController : MonoBehaviour
             obj_.GetComponent<Rigidbody2D>().AddForce(obj_.transform.up * 10f, ForceMode2D.Impulse);
             
         }
+        
+        
     }
+   
 }
