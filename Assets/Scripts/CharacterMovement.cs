@@ -11,7 +11,7 @@ public class CharacterMovement : MonoBehaviour
     [Header("Ball Operation")]
     public GameObject ball;
     public Transform point;
-
+    public float ballSpeed = 10f;
     
     private void Start()
     {
@@ -37,7 +37,7 @@ public class CharacterMovement : MonoBehaviour
         if (Input.GetMouseButtonUp(0))
         {
             GameObject objBall = Instantiate(ball, point.position, point.rotation);
-            objBall.GetComponent<Rigidbody2D>().AddForce(objBall.transform.up * 10f, ForceMode2D.Impulse);
+            objBall.GetComponent<Rigidbody2D>().AddForce(objBall.transform.up * ballSpeed, ForceMode2D.Impulse);
 
         }
         //Mathf.Clamp(transform.rotation.z, -80, 80);
