@@ -5,26 +5,31 @@ using UnityEngine;
 public class WaterController : MonoBehaviour
 {
     
-    public GameObject ball;
-    public Transform point;
+    
     
     void Start()
     {
-        
+        StartCoroutine(DestroyBall());
     }
 
     
     void FixedUpdate()
     {
         
-        if (Input.GetMouseButtonUp(0))
-        {
-            GameObject obj_ = Instantiate(ball, point.position, point.rotation);
-            obj_.GetComponent<Rigidbody2D>().AddForce(obj_.transform.up * 10f, ForceMode2D.Impulse);
-            
-        }
+        
         
         
     }
-   
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (collision.gameObject.tag=="fire")
+        {
+            Destroy(this.gameObject);
+        }
+    }
+    IEnumerator DestroyBall()
+    {
+        yield return new WaitForSeconds(3f);
+        Destroy(this.gameObject);
+    }
 }
